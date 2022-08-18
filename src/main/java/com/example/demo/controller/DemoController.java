@@ -24,6 +24,7 @@ public class DemoController {
 
     @GetMapping(value = "/hello/{name:[a-zA-Z\\d]+}")
     public void hello(@PathVariable("name") String name, HttpServletResponse httpServletResponse) {
+        logger.info("Request user, name:{}", name);
         try {
             httpServletResponse.getWriter().write("Hello, " + name + "!");
         } catch (IOException e) {
